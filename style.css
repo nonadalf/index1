@@ -212,73 +212,72 @@ main .starArticle .boxes .box { width: calc((100% - 0.8em) / 5); height: 5em; bo
 
 
 
-
 /* ========================================
-RESPONSIVE DESIGN - FINAL FIX
+RESPONSIVE DESIGN - MOBILE & TABLET ONLY
 ======================================== */
 @media screen and (max-width: 768px) {
   html, body { overflow-x: hidden; width: 100%; }
   * { box-sizing: border-box; }
 
-  /* ===== HEADER - FIX OVERLAPPING ===== */
+  /* ===== HEADER - تحسين جذري ===== */
   header {
-    padding: 0.5em !important;
-    gap: 0.3em !important;
-    flex-wrap: nowrap !important; /* منع الالتفاف */
-    justify-content: space-between !important;
-    align-items: center !important;
+    flex-wrap: wrap;
+    padding: 0.5em;
+    gap: 0.5em;
+    justify-content: space-between;
   }
   
   header .rightSide {
-    gap: 0.4em !important;
-    flex-wrap: nowrap !important;
+    gap: 0.5em;
+    flex-wrap: nowrap;
   }
   
   header .leftSide {
-    gap: 0.2em !important;
-    flex-wrap: nowrap !important;
+    gap: 0.4em;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
   }
   
   header .rightSide .logo h1 {
-    font-size: 1.2em !important;
-    margin: 0 !important;
+    font-size: 1.2em;
   }
   
   header .rightSide .plant .btnPlant img {
-    width: 30px !important;
-    height: 30px !important;
+    width: 32px;
+    height: 32px;
   }
   
-  /* إخفاء نص suggest Article تماماً */
-  header .leftSide .btnSuggestArticle {
-    width: 36px !important;
-    height: 36px !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-  }
-  header .leftSide .btnSuggestArticle span {
-    display: none !important;
-  }
-  header .leftSide .btnSuggestArticle i {
-    margin: 0 !important;
-    font-size: 1em !important;
-  }
-  
-  /* زر اللغة */
+  /* زر اللغة - دائري صغير */
   header .leftSide .btnLanguage {
-    width: 36px !important;
-    height: 36px !important;
-    padding: 0 !important;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
   }
   header .leftSide .btnLanguage i {
-    font-size: 1.1em !important;
+    font-size: 1em;
+  }
+  
+  /* زر اقتراح مقالة - أيقونة فقط */
+  header .leftSide .btnSuggestArticle {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  header .leftSide .btnSuggestArticle span {
+    display: none;
+  }
+  header .leftSide .btnSuggestArticle i {
+    margin: 0;
+    font-size: 1em;
   }
   
   /* صورة البروفايل */
   header .leftSide .profile .btnProfile,
   header .leftSide .profile .btnProfile img {
-    width: 36px !important;
-    height: 36px !important;
+    width: 36px;
+    height: 36px;
   }
 
   /* ===== POPUPS ===== */
@@ -287,115 +286,121 @@ RESPONSIVE DESIGN - FINAL FIX
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    width: 90vw !important;
-    max-width: 320px !important;
-    max-height: 75vh !important;
+    width: 92vw !important;
+    max-width: 340px !important;
+    max-height: 80vh !important;
     right: auto !important;
+    margin: 0 !important;
     z-index: 9999 !important;
+    border-radius: 1em !important;
   }
 
-  /* ===== SEARCH BOX - KEEP CATEGORY BOXES AS IS ===== */
+  /* ===== SEARCH AREA ===== */
   main .boxSearch {
-    padding: 1em 0.5em !important;
-    gap: 1.5em !important;
+    padding: 1em 0.5em;
+    gap: 1em;
   }
   
-  /* المربعات العلوية - اتركها كما هي */
+  /* المربعات العلوية - تركها كما هي */
   main .boxSearch .category {
-    width: 100% !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 0.5em !important;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
   }
   main .boxSearch .category button {
-    width: 22% !important;
-    min-width: 60px !important;
-    height: 60px !important;
+    width: 22%;
+    min-width: 60px;
+    height: 60px;
   }
   main .boxSearch .category button img {
-    width: 50px !important;
-    height: 50px !important;
+    width: 50px;
+    height: 50px;
   }
 
-  /* شريط البحث - تحسين جذري */
+  /* شريط البحث - تبسيط جذري */
   main .boxSearch .searchBar {
-    width: 100% !important;
-    height: auto !important;
-    padding: 0.8em !important;
-    flex-direction: column !important; /* عمودي */
-    gap: 0.6em !important;
-    align-items: stretch !important;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    height: auto;
   }
   
-  /* الأيقونة + حقل الإدخال في صف واحد */
   main .boxSearch .searchBar .searchIcon {
-    display: none !important; /* إخفاء الأيقونة المنفصلة */
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
   }
   
   main .boxSearch .searchBar input {
-    width: 100% !important;
-    height: 45px !important;
-    font-size: 1em !important;
-    text-align: center !important;
-    border-radius: var(--main-border-redus) !important;
+    width: 100%;
+    height: 42px;
+    font-size: 1em;
+    flex-grow: 1;
   }
   
-  main .boxSearch .searchBar .overlay {
+  /* إخفاء زر الكيبورد والماجيك */
+  main .boxSearch .searchBar .searchOption .keybor,
+  main .boxSearch .searchBar .searchOption .customSearch {
     display: none !important;
   }
   
-  /* أزرار البحث في صف منفصل */
+  /* إبقاء زر البحث فقط */
   main .boxSearch .searchBar .searchOption {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 0.5em !important;
-    margin: 0 !important;
+    width: auto;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
   }
   
-  main .boxSearch .searchBar .searchOption button {
-    width: 45px !important;
-    height: 45px !important;
-    font-size: 16px !important;
+  main .boxSearch .searchBar .searchOption .btnSearch {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
   }
   
-  /* عداد المقالات */
+  main .boxSearch .searchBar .overlay {
+    display: none;
+  }
+  
   main .boxSearch .numberOfArticle {
-    text-align: center !important;
-    width: 100% !important;
-    margin-top: 0 !important;
-    font-size: 1em !important;
+    text-align: center;
+    width: 100%;
+    margin-top: 0.2em;
+    font-size: 1em;
   }
 
-  /* ===== FEATURED ARTICLES - KEEP AS IS ===== */
+  /* ===== FEATURED ARTICLES ===== */
   main .starArticle {
-    padding: 0.5em !important;
+    padding: 0.5em;
   }
+  
   main .starArticle .boxes {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.4em !important;
-    width: 100% !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4em;
+    width: 100%;
   }
+  
   main .starArticle .boxes .box {
-    width: 100% !important;
-    height: 60px !important;
-    font-size: 0.95em !important;
-    padding: 0.5em !important;
+    width: 100%;
+    height: 60px;
+    font-size: 0.95em;
+    padding: 0.5em;
   }
 }
 
 /* شاشات صغيرة جداً */
 @media screen and (max-width: 480px) {
-  header .rightSide .logo h1 {
-    font-size: 1.1em !important;
+  main .starArticle .boxes {
+    grid-template-columns: 1fr;
   }
   
-  main .starArticle .boxes {
-    grid-template-columns: 1fr !important;
-  }
-  main .starArticle .boxes .box {
-    height: 50px !important;
+  header .rightSide .logo h1 {
+    font-size: 1.1em;
   }
 }
