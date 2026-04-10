@@ -213,80 +213,72 @@ main .starArticle .boxes .box { width: calc((100% - 0.8em) / 5); height: 5em; bo
 
 
 
-/* ===== MOBILE FIX - FINAL PRECISE VERSION ===== */
+/* ========================================
+RESPONSIVE DESIGN - FINAL FIX
+======================================== */
 @media screen and (max-width: 768px) {
   html, body { overflow-x: hidden; width: 100%; }
-  
-  /* ===== HEADER - منظم في صفين كحد أقصى ===== */
+  * { box-sizing: border-box; }
+
+  /* ===== HEADER - FIX OVERLAPPING ===== */
   header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5em;
-    gap: 0.5em;
+    padding: 0.5em !important;
+    gap: 0.3em !important;
+    flex-wrap: nowrap !important; /* منع الالتفاف */
+    justify-content: space-between !important;
+    align-items: center !important;
   }
   
-  /* الصف الأول: الشعار + النبات */
   header .rightSide {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    order: 1;
-  }
-  header .rightSide .logo h1 {
-    font-size: 1.3em;
-    margin: 0;
-  }
-  header .rightSide .plant .btnPlant img {
-    width: 32px;
-    height: 32px;
+    gap: 0.4em !important;
+    flex-wrap: nowrap !important;
   }
   
-  /* الصف الثاني: الأزرار الجانبية */
   header .leftSide {
-    display: flex;
-    align-items: center;
-    gap: 0.4em;
-    order: 2;
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 0.3em;
+    gap: 0.2em !important;
+    flex-wrap: nowrap !important;
   }
   
-  /* إخفاء نص "suggest Article" تماماً */
+  header .rightSide .logo h1 {
+    font-size: 1.2em !important;
+    margin: 0 !important;
+  }
+  
+  header .rightSide .plant .btnPlant img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  /* إخفاء نص suggest Article تماماً */
   header .leftSide .btnSuggestArticle {
-    min-width: 40px;
-    max-width: 40px;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border-radius: 50%;
-    overflow: hidden;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
   }
   header .leftSide .btnSuggestArticle span {
     display: none !important;
-    visibility: hidden;
-    opacity: 0;
   }
   header .leftSide .btnSuggestArticle i {
-    margin: 0;
-    font-size: 1.1em;
+    margin: 0 !important;
+    font-size: 1em !important;
   }
   
-  /* باقي الأزرار */
-  header .leftSide button {
-    min-width: 38px;
-    min-height: 38px;
-    padding: 0.5em;
-    font-size: 0.9em;
-  }
-  
-  header .leftSide .profile .btnProfile,
-  header .leftSide .profile .btnProfile img,
+  /* زر اللغة */
   header .leftSide .btnLanguage {
-    width: 38px;
-    height: 38px;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+  }
+  header .leftSide .btnLanguage i {
+    font-size: 1.1em !important;
+  }
+  
+  /* صورة البروفايل */
+  header .leftSide .profile .btnProfile,
+  header .leftSide .profile .btnProfile img {
+    width: 36px !important;
+    height: 36px !important;
   }
 
   /* ===== POPUPS ===== */
@@ -296,95 +288,114 @@ main .starArticle .boxes .box { width: calc((100% - 0.8em) / 5); height: 5em; bo
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     width: 90vw !important;
-    max-width: 340px !important;
+    max-width: 320px !important;
     max-height: 75vh !important;
+    right: auto !important;
     z-index: 9999 !important;
-    border-radius: 1em !important;
   }
 
-  /* ===== SEARCH AREA ===== */
+  /* ===== SEARCH BOX - KEEP CATEGORY BOXES AS IS ===== */
   main .boxSearch {
-    padding: 1em 0.6em;
-    gap: 1em;
+    padding: 1em 0.5em !important;
+    gap: 1.5em !important;
   }
   
-  /* أزرار التصنيفات - 4 أعمدة */
+  /* المربعات العلوية - اتركها كما هي */
   main .boxSearch .category {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5em;
-    width: 100%;
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5em !important;
   }
   main .boxSearch .category button {
-    width: 100%;
-    height: 70px;
-    aspect-ratio: 1;
+    width: 22% !important;
+    min-width: 60px !important;
+    height: 60px !important;
   }
   main .boxSearch .category button img {
-    width: 60px;
-    height: 60px;
+    width: 50px !important;
+    height: 50px !important;
   }
 
-  /* شريط البحث */
+  /* شريط البحث - تحسين جذري */
   main .boxSearch .searchBar {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6em;
-    padding: 0.6em;
-    width: 100%;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0.8em !important;
+    flex-direction: column !important; /* عمودي */
+    gap: 0.6em !important;
+    align-items: stretch !important;
   }
+  
+  /* الأيقونة + حقل الإدخال في صف واحد */
   main .boxSearch .searchBar .searchIcon {
-    order: 0;
-    width: 40px;
-    height: 40px;
+    display: none !important; /* إخفاء الأيقونة المنفصلة */
   }
+  
   main .boxSearch .searchBar input {
-    width: 100%;
-    height: 44px;
-    font-size: 1em;
-    order: 1;
-    text-align: center;
+    width: 100% !important;
+    height: 45px !important;
+    font-size: 1em !important;
+    text-align: center !important;
+    border-radius: var(--main-border-redus) !important;
   }
+  
   main .boxSearch .searchBar .overlay {
-    display: none;
+    display: none !important;
   }
+  
+  /* أزرار البحث في صف منفصل */
   main .boxSearch .searchBar .searchOption {
-    order: 2;
-    justify-content: center;
-    gap: 0.6em;
-    width: 100%;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.5em !important;
+    margin: 0 !important;
   }
+  
+  main .boxSearch .searchBar .searchOption button {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 16px !important;
+  }
+  
+  /* عداد المقالات */
   main .boxSearch .numberOfArticle {
-    text-align: center;
-    width: 100%;
-    font-size: 1em;
+    text-align: center !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    font-size: 1em !important;
   }
 
-  /* ===== FEATURED ARTICLES - عمودين ===== */
+  /* ===== FEATURED ARTICLES - KEEP AS IS ===== */
   main .starArticle {
-    padding: 0.5em;
+    padding: 0.5em !important;
   }
   main .starArticle .boxes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5em;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.4em !important;
+    width: 100% !important;
   }
   main .starArticle .boxes .box {
-    width: 100%;
-    height: 60px;
-    font-size: 0.95em;
-    padding: 0.6em;
+    width: 100% !important;
+    height: 60px !important;
+    font-size: 0.95em !important;
+    padding: 0.5em !important;
   }
 }
 
 /* شاشات صغيرة جداً */
 @media screen and (max-width: 480px) {
-  main .boxSearch .category {
-    grid-template-columns: repeat(3, 1fr);
+  header .rightSide .logo h1 {
+    font-size: 1.1em !important;
+  }
+  
+  main .starArticle .boxes {
+    grid-template-columns: 1fr !important;
   }
   main .starArticle .boxes .box {
-    height: 55px;
-    font-size: 0.9em;
+    height: 50px !important;
   }
 }
