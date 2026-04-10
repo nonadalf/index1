@@ -359,199 +359,214 @@ main .starArticle .boxes .box { width: calc((100% - 0.8em) / 5); height: 5em; bo
     padding: 0.6em;
   }
 }
+/* === MOBILE RESPONSIVE - FINAL FIX === */
 
-/* ===== ≤480px: Mobile Portrait (Critical UX) ===== */
-@media (max-width: 480px) {
-  header { padding: 0.5em 0.6em; }
-  header .rightSide .logo h1 { font-size: 1.2em; }
-  
-  /* Language button: icon only */
-  header .leftSide .btnLanguage {
-    width: 38px !important;
-    height: 38px !important;
-    padding: 0 !important;
-  }
-  header .leftSide .btnLanguage i {
-    font-size: 1.1em;
+/* منع التمرير الأفقي نهائياً */
+@media (max-width: 768px) {
+  * {
+    max-width: 100vw;
   }
   
-  /* Profile button */
-  header .leftSide .profile .btnProfile,
-  header .leftSide .profile .btnProfile img {
-    width: 34px !important;
-    height: 34px !important;
-  }
-  
-  /* Popups: full modal with safe area */
-  .plantPop, .profileList, .articleList, .languageList {
-    width: 98vw !important;
-    max-width: 98vw !important;
-    height: 82vh !important;
-    right: 1vw !important;
-    left: 1vw !important;
-    top: 9vh !important;
-    border-radius: 1.2em !important;
-  }
-  
-  /* Popup content: touch-optimized */
-  .popup > main {
-    padding: 0.8em !important;
-    gap: 0.6em !important;
-  }
-  .popup > main button,
-  .popup > main input,
-  .popup > main textarea {
-    min-height: 44px !important; /* WCAG touch target */
-    font-size: 1em !important;
-    padding: 0.8em 1em !important;
-  }
-  .popup > main textarea {
-    height: 120px !important;
-  }
-  .popup > header h1 {
-    font-size: 1.3em !important;
-  }
-  .popup > header .btnClose {
-    width: 1.8em !important;
-    height: 1.8em !important;
-    font-size: 0.9em !important;
-  }
-  
-  /* Search: vertical compact */
-  main .boxSearch { padding: 1em 0.5em; gap: 1em; }
-  
-  main .boxSearch .category {
-    gap: 0.4em;
-    justify-content: center;
-  }
-  main .boxSearch .category button {
-    width: 3.6em !important;
-    height: 3.6em !important;
-  }
-  main .boxSearch .category button img {
-    width: 3em !important;
-    height: 3em !important;
-  }
-  
-  main .boxSearch .searchBar {
-    padding: 0.4em;
-    flex-direction: column;
-    gap: 0.6em;
-  }
-  main .boxSearch .searchBar .searchIcon {
-    width: 2.5em;
-    height: 2.5em;
-    margin-right: 0;
-  }
-  main .boxSearch .searchBar input {
+  html, body {
+    overflow-x: hidden;
     width: 100%;
-    height: 42px;
-    font-size: 1em;
-    text-align: center;
-    border-radius: var(--main-border-redus) !important;
   }
-  main .boxSearch .searchBar .overlay {
-    display: none !important; /* Remove vertical divider on mobile */
-  }
-  main .boxSearch .searchBar .searchOption {
-    width: 100%;
-    justify-content: center;
-    padding: 0;
-    gap: 0.3em;
-  }
-  main .boxSearch .searchBar .searchOption button {
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
-  }
-  
-  /* Featured: 2 columns */
-  main .starArticle { padding: 0.8em 0.3em; }
-  main .starArticle .boxes {
-    width: 100%;
-    gap: 0.25em;
-  }
-  main .starArticle .boxes .box {
-    width: calc((100% - 0.25em) / 2) !important;
-    height: 4em !important;
-    font-size: 0.85em;
-    padding: 0.4em;
-    text-align: center;
-  }
-  
-  /* Article count */
-  main .boxSearch .numberOfArticle {
-    font-size: 1em;
-    margin-top: 0.3em !important;
-  }
-}
 
-/* ===== ≤360px: Very Small Mobile ===== */
-@media (max-width: 360px) {
-  /* Featured: 1 column for readability */
-  main .starArticle .boxes .box {
-    width: 100% !important;
-    height: 3.8em !important;
-    font-size: 0.95em;
+  /* ===== HEADER FIX ===== */
+  header {
+    padding: 0.5em !important;
+    gap: 0.3em !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
   }
   
-  /* Search buttons: minimal */
-  main .boxSearch .searchBar .searchOption button {
-    width: 32px;
-    height: 32px;
-    font-size: 13px;
+  header .rightSide {
+    gap: 0.4em !important;
+    flex-wrap: wrap !important;
   }
   
-  /* Hide magic search button on smallest screens (non-essential) */
-  main .boxSearch .searchBar .searchOption .customSearch {
+  header .leftSide {
+    gap: 0.3em !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+  }
+  
+  header .rightSide .logo h1 {
+    font-size: 1.2em !important;
+  }
+  
+  header .rightSide .plant .btnPlant img {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  
+  /* أزرار الهيدر الجانبية */
+  header .leftSide button {
+    padding: 0.5em 0.7em !important;
+    font-size: 0.85em !important;
+    min-width: 36px;
+    min-height: 36px;
+  }
+  
+  /* زر اقتراح مقالة - إخفاء النص */
+  header .leftSide .btnSuggestArticle {
+    white-space: nowrap !important;
+  }
+  header .leftSide .btnSuggestArticle span {
     display: none !important;
   }
+  
+  /* صورة البروفايل */
+  header .leftSide .profile .btnProfile {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+  }
+  header .leftSide .profile .btnProfile img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  /* زر اللغة */
+  header .leftSide .btnLanguage {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  /* ===== POPUPS FIX ===== */
+  .plantPop, .profileList, .articleList, .languageList {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: 92vw !important;
+    max-width: 360px !important;
+    max-height: 80vh !important;
+    margin: 0 !important;
+    border-radius: 1em !important;
+    z-index: 9999 !important;
+  }
+
+  /* ===== SEARCH BOX FIX ===== */
+  main .boxSearch {
+    padding: 1em 0.8em !important;
+    gap: 1.2em !important;
+  }
+  
+  /* أزرار التصنيفات العلوية */
+  main .boxSearch .category {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5em !important;
+  }
+  
+  main .boxSearch .category button {
+    width: 22% !important;
+    min-width: 60px !important;
+    height: 60px !important;
+    margin: 0 !important;
+  }
+  
+  main .boxSearch .category button img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  /* شريط البحث الرئيسي */
+  main .boxSearch .searchBar {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0.6em !important;
+    flex-wrap: wrap !important;
+    gap: 0.5em !important;
+  }
+  
+  main .boxSearch .searchBar .searchIcon {
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 0 !important;
+  }
+  
+  main .boxSearch .searchBar input {
+    width: calc(100% - 50px) !important;
+    height: 40px !important;
+    font-size: 1em !important;
+    order: 1 !important;
+  }
+  
+  main .boxSearch .searchBar .overlay {
+    display: none !important;
+  }
+  
+  main .boxSearch .searchBar .searchOption {
+    width: 100% !important;
+    order: 2 !important;
+    justify-content: center !important;
+    gap: 0.4em !important;
+    margin-top: 0.3em !important;
+  }
+  
+  main .boxSearch .searchBar .searchOption button {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 14px !important;
+  }
+  
+  /* عداد المقالات */
+  main .boxSearch .numberOfArticle {
+    font-size: 1em !important;
+    margin-top: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* ===== FEATURED ARTICLES FIX ===== */
+  main .starArticle {
+    padding: 0.5em !important;
+  }
+  
+  main .starArticle .boxes {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.4em !important;
+    justify-content: center !important;
+  }
+  
+  main .starArticle .boxes .box {
+    width: auto !important;
+    height: 60px !important;
+    font-size: 0.95em !important;
+    padding: 0.5em !important;
+    margin: 0 !important;
+  }
 }
 
-/* ===== Mobile UX Enhancements (Non-Visual) ===== */
+/* شاشات صغيرة جداً */
+@media (max-width: 360px) {
+  main .starArticle .boxes {
+    grid-template-columns: 1fr !important;
+  }
+  
+  main .starArticle .boxes .box {
+    height: 50px !important;
+  }
+  
+  header .rightSide .logo h1 {
+    font-size: 1em !important;
+  }
+}
+
+/* تحسين التمرير على الموبايل */
 @media (max-width: 768px) {
-  /* Smooth scroll for popups on iOS */
   .popup {
     -webkit-overflow-scrolling: touch;
   }
   
-  /* Prevent scroll chaining */
   .popup > main {
     overscroll-behavior: contain;
-  }
-  
-  /* Safe area for notched devices */
-  body {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-  
-  /* Prevent horizontal scroll */
-  html, body {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
-  }
-  
-  /* Fix 100vh on mobile browsers */
-  :root {
-    --vh: 1vh;
-  }
-  body {
-    min-height: calc(var(--vh, 1vh) * 100);
-  }
-}
-
-/* ===== Print / High Contrast (Accessibility) ===== */
-@media print {
-  header, .popup, .starArticle {
-    display: none !important;
-  }
-  main .boxSearch {
-    padding: 1em;
-  }
-  main .boxSearch .searchBar {
-    box-shadow: none !important;
-    border: 1px solid #000;
   }
 }
